@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report", "Report\Report.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUI", "CommonUI\CommonUI.csproj", "{5A19CBAF-F523-4675-9AEB-628E7DCDED62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportTool", "DBDictionaryExport\ReportTool.csproj", "{2F0EEAB8-90D5-4B73-A72E-A96AD25A7946}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportTool", "ReportTools\ReportTool.csproj", "{2F0EEAB8-90D5-4B73-A72E-A96AD25A7946}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

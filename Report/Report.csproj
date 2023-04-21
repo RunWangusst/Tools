@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\CSVFileHelper.cs" />
-    <Compile Include="Models\DBReportModel.cs" />
+    <Compile Include="Models\DbReportModel.cs" />
     <Compile Include="Models\ReportAttribute.cs" />
     <Compile Include="Models\ReportEntityRelations.cs" />
     <Compile Include="Models\ReportErCode.cs" />
@@ -84,7 +84,7 @@
     <Compile Include="Models\ReportTable.cs" />
     <Compile Include="Models\ReportView.cs" />
     <Compile Include="Models\ReportViewDetail.cs" />
-    <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\ColumnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordTemplateHelper.cs" />
   </ItemGroup>

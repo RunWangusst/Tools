@@ -51,7 +51,7 @@ namespace Report.Helpers
             }
             catch (Exception ex)
             {
-                return new List<T>();
+                throw ex;
             }
         }
 

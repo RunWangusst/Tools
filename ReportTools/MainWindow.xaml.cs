@@ -52,15 +52,16 @@ namespace DBDictionaryExport
                     //richText.CaretPosition = richText.Document.ContentEnd;
                     richText.ScrollToEnd();
                     // Get the current caret position.
-                    TextPointer caretPos = richText.CaretPosition;
+                    //TextPointer caretPos = richText.CaretPosition;
 
                     // Set the TextPointer to the end of the current document.
-                    caretPos = caretPos.DocumentEnd;
+                    //caretPos = caretPos.DocumentEnd;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
                 //throw ex;
             }
             finally

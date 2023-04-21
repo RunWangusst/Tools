@@ -38,30 +38,33 @@ namespace Report
                 //CreateTestData();
                 //sourceDataPath = @"C:\Users\\Administrator\Desktop\aaa.csv";
                 // 读取 csv 文件
-                var s = CSVFileHelper.Instance().ConvertClass<TestModel>(sourceDataPath);
+                var s = CSVFileHelper.Instance().ConvertClass<ColumnModel>(sourceDataPath);
                 var group = s.GroupBy(t => t.TablePhysicalName);
-                DBReportModel dbReportModel = new DBReportModel();
+                DbReportModel dbReportModel = new DbReportModel();
                 dbReportModel.ReportSubjectAreas = new List<ReportSubjectArea>();
                 ReportSubjectArea subjectArea = new ReportSubjectArea();
                 dbReportModel.ReportSubjectAreas.Add(subjectArea);
                 subjectArea.ReportTables = new List<ReportTable>();
                 foreach (var g in group)
                 {
-                    ReportTable reportTable = new ReportTable();
-                    reportTable.ReportAttributes = new List<ReportAttribute>();
+                    ReportTable reportTable = new ReportTable
+                    {
+                        ReportAttributes = new List<ReportAttribute>()
+                    };
                     foreach (var item in g)
                     {
                         reportTable.LogicalName = item.TableLogicalName;
                         reportTable.PhysicalName = item.TablePhysicalName;
 
-                        ReportAttribute reportAttribute = new ReportAttribute();
-
-                        reportAttribute.PhysicalName = item.PhysicalName;
-                        reportAttribute.AlternativeName = item.LogicalName;
-                        reportAttribute.PK = item.PK;
-                        reportAttribute.NotNull = item.NotNull;
-                        reportAttribute.PhysicalDataType = item.PhysicalDataType;
-                        reportAttribute.Description = item.Description;
+                        ReportAttribute reportAttribute = new ReportAttribute
+                        {
+                            PhysicalName = item.PhysicalName,
+                            AlternativeName = item.LogicalName,
+                            PK = item.PK,
+                            NotNull = item.NotNull,
+                            PhysicalDataType = item.PhysicalDataType,
+                            Description = item.Description
+                        };
 
                         reportTable.ReportAttributes.Add(reportAttribute);
                     }
@@ -86,17 +89,17 @@ namespace Report
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false;
+                throw ex;
             }
         }
 
 
         private static void CreateTestData()
         {
-            List<TestModel> test = new List<TestModel>();
+            List<ColumnModel> test = new List<ColumnModel>();
             for (int i = 0; i < 10; i++)
             {
-                test.Add(new TestModel()
+                test.Add(new ColumnModel()
                 {
                     TableLogicalName = $"L_{i}",
                     TablePhysicalName = $"P_{i}",
@@ -108,7 +111,7 @@ namespace Report
                 });
             }
 
-            CSVFileHelper.Instance().Save<TestModel>(test, @"C:\Users\\Administrator\Desktop\aaa.csv");
+            CSVFileHelper.Instance().Save<ColumnModel>(test, @"C:\Users\\Administrator\Desktop\aaa.csv");
         }
 
         public static bool FileIsOpen(string pathName)
